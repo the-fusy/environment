@@ -1,0 +1,50 @@
+{
+  :input-sources {:ru {:language "ru"}}
+  :devices {:vortex [{:vendor_id 1241 :product_id 402}]}
+  :froms {
+    :ya {:sim [:t :a] :simo {:dorder :strict}}
+    :yu {:sim [:t :f] :simo {:dorder :strict}}
+    :yi {:sim [:t :g] :simo {:dorder :strict}}
+    :ch {:sim [:i :j] :simo {:dorder :strict}}
+    :sh {:sim [:semicolon :j] :simo {:dorder :strict}}
+  }
+
+  :main [
+    {
+      :des "change alt and command to mac os defaults"
+      :rules [
+        [:##left_option :left_command :vortex]
+        [:##left_command :left_option :vortex]
+        [:##right_option :right_command :vortex]
+      ]
+    }
+    {
+      :des "ctrl + backspace to forward delete"
+      :rules [
+        [:!Tdelete_or_backspace :delete_forward]
+      ]
+    }
+    {
+      :des "ya -> я, yu -> ю, yi -> й, ch -> ч, sh -> ш"
+      ;; todo: change keypad to keyboard emulation via shell
+      :other {:parameters {:simultaneous_threshold_milliseconds 1000}}
+      :rules [
+        [:ya :keypad_6 :ru {:other {:parameters {:to_delayed_action_delay_milliseconds 100 :basic.to_if_alone_timeout_milliseconds 500 :basic.to_if_held_down_threshold_milliseconds 250}} }]
+        [:yu :keypad_5 :ru]
+        [:yi :keypad_1 :ru]
+        [:ch :keypad_2 :ru]
+        [:sh :keypad_3 :ru]
+      ]
+    }
+    {
+      :des "right_command + hjkl to arrow keys"
+      :rules [
+        [:!Q##j :left_arrow]
+        [:!Q##c :down_arrow]
+        [:!Q##v :up_arrow]
+        [:!Q##p :right_arrow]
+      ]
+    }
+  ]
+}
+    

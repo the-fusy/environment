@@ -1,3 +1,8 @@
-# Настройка моего окружения
+## todo
 
-https://tb.rg-adguard.net/public.php
+```
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 1        
+defaults write -g ApplePressAndHoldEnabled -bool false
+```
+
