@@ -1,4 +1,5 @@
 {
+  :profiles {:Default {:default true :sim 1000}}
   :input-sources {:ru {:language "ru"}}
   :devices {:vortex [{:vendor_id 1241 :product_id 402}]}
   :froms {
@@ -8,8 +9,22 @@
     :ch {:sim [:i :j] :simo {:dorder :strict}}
     :sh {:sim [:semicolon :j] :simo {:dorder :strict}}
   }
+  :simlayers {
+    :o-mode {:key :s}
+    :w-mode {:key :comma}
+  }
 
   :main [
+    {
+      :des "open applications"
+      :rules [
+        :o-mode
+        [:k "open -a 'iTerm'"]
+        [:n "open -a 'Safari'"]
+        [:m "open -a 'Telegram'"]
+        [:comma "open -a 'WorkFlowy'"]
+      ]
+    }
     {
       :des "change alt and command to mac os defaults"
       :rules [
