@@ -3,11 +3,15 @@
   :input-sources {:ru {:language "ru"}}
   :devices {:vortex [{:vendor_id 1241 :product_id 402}]}
   :froms {
-    :ya {:sim [:t :a] :simo {:dorder :strict}}
-    :yu {:sim [:t :f] :simo {:dorder :strict}}
-    :yi {:sim [:t :g] :simo {:dorder :strict}}
-    :ch {:sim [:i :j] :simo {:dorder :strict}}
-    :sh {:sim [:semicolon :j] :simo {:dorder :strict}}
+    :ya {:sim [:t :a] :simo {:dorder :strict} :modi {:optional :any}}
+    :yu {:sim [:t :f] :simo {:dorder :strict} :modi {:optional :any}}
+    :yi {:sim [:t :g] :simo {:dorder :strict} :modi {:optional :any}}
+    :ch {:sim [:i :j] :simo {:dorder :strict} :modi {:optional :any}}
+    :sh {:sim [:semicolon :j] :simo {:dorder :strict} :modi {:optional :any}}
+  }
+  :templates {
+    :yabai "/usr/local/bin/yabai -m %s"
+    :open-app "open -a '%s'"
   }
   :simlayers {
     :o-mode {:key :s}
@@ -16,13 +20,24 @@
 
   :main [
     {
+      :des "move and resize windows via yabai"
+      :rules [
+        :w-mode
+        ;; hmm, todo
+        [:q [:yabai "window --grid 1:12:0:0:1:1"]]
+        [:w [:yabai "window --grid 1:12:0:0:2:1"]]
+        [:e [:yabai "window --grid 1:12:0:0:4:1"]]
+        [:r [:yabai "window --grid 1:12:0:0:6:1"]]
+      ]
+    }
+    {
       :des "open applications"
       :rules [
         :o-mode
-        [:k "open -a 'iTerm'"]
-        [:n "open -a 'Safari'"]
-        [:m "open -a 'Telegram'"]
-        [:comma "open -a 'WorkFlowy'"]
+        [:k [:open-app "iTerm"]]
+        [:n [:open-app "Safari"]]
+        [:m [:open-app "Telegram"]]
+        [:comma [:open-app "WorkFlowy"]]
       ]
     }
     {
