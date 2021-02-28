@@ -1,5 +1,5 @@
 {
-  :profiles {:Default {:default true :sim 1000}}
+  :profiles {:Default {:default true :alone 80 :held 50 :delay 0 :sim 1000}}
   :input-sources {:ru {:language "ru"}}
   :devices {:vortex [{:vendor_id 1241 :product_id 402}]}
   :froms {
@@ -52,6 +52,13 @@
       :des "ctrl + backspace to forward delete"
       :rules [
         [:!Tdelete_or_backspace :delete_forward]
+      ]
+    }
+    {
+      :des "basic"
+      :rules [
+        [:escape :f19]
+        [:caps_lock :escape]
       ]
     }
     {
