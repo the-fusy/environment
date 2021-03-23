@@ -51,9 +51,10 @@ set smartcase
 set listchars=tab:\ \ 
 
 map <C-n> :NERDTreeToggle<CR>
-:imap jk <Esc>
+":imap jk <Esc>
 :let mapleader = ","
 map <Space> :noh<cr>
 
 
 set guicursor=n-v-c-i:block-Cursor
+set clipboard+=unnamedplus
