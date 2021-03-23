@@ -34,6 +34,7 @@
       :des "open applications"
       :rules [
         :o-mode
+        [:j [:open-app "IntelliJ IDEA Ultimate"]]
         [:k [:open-app "iTerm"]]
         [:n [:open-app "Safari"]]
         [:m [:open-app "Telegram"]]
