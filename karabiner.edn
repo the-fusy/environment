@@ -25,9 +25,9 @@
         :w-mode
         ;; hmm, todo
         [:q [:yabai "window --grid 1:12:0:0:1:1"]]
-        [:w [:yabai "window --grid 1:12:0:0:2:1"]]
-        [:e [:yabai "window --grid 1:12:0:0:4:1"]]
-        [:r [:yabai "window --grid 1:12:0:0:6:1"]]
+        [:w [:yabai "window --grid 1:12:0:0:4:1"]]
+        [:e [:yabai "window --grid 1:12:4:0:4:1"]]
+        [:r [:yabai "window --grid 1:12:8:0:4:1"]]
       ]
     }
     {
