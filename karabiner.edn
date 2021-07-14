@@ -12,6 +12,8 @@
   :templates {
     :yabai "/usr/local/bin/yabai -m %s"
     :open-app "open -a '%s'"
+    :focus-to-right-window "/usr/local/bin/yabai -m window --focus $(/usr/local/bin/yabai -m query --windows | /usr/local/bin/jq '[.[] | {id, focused, x: .frame.x, y: .frame.y}] | sort_by(-.focused, .x) | .[0].x as $fx | .[0].y as $fy | map(select(.x > $fx and .y == $fy)) | .[0].id')"
+    :focus-to-left-window "/usr/local/bin/yabai -m window --focus $(/usr/local/bin/yabai -m query --windows | /usr/local/bin/jq '[.[] | {id, focused, x: .frame.x, y: .frame.y}] | sort_by(-.focused, -.x) | .[0].x as $fx | .[0].y as $fy | map(select(.x < $fx and .y == $fy)) | .[0].id')"
   }
   :simlayers {
     :o-mode {:key :s}
@@ -31,14 +33,10 @@
       ]
     }
     {
-      :des "open applications"
+      :des "switch between 1/3 windows"
       :rules [
-        :o-mode
-        [:j [:open-app "IntelliJ IDEA Ultimate"]]
-        [:k [:open-app "iTerm"]]
-        [:n [:open-app "Safari"]]
-        [:m [:open-app "Telegram"]]
-        [:comma [:open-app "WorkFlowy"]]
+        [:!Q##d [:focus-to-left-window]]
+        [:!Q##f [:focus-to-right-window]]
       ]
     }
     {
