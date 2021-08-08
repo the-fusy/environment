@@ -1,0 +1,24 @@
+keycode  10 = ampersand 1 1 exclam
+keycode  11 = bracketleft 2 2 at currency
+keycode  12 = braceleft 3 3 numbersign cent
+keycode  13 = braceright 4 4 dollar yen
+keycode  14 = parenleft 5 5 percent EuroSign
+keycode  15 = equal 6 6 asciicircum sterling dead_circumflex
+keycode  16 = asterisk 7 7 ampersand
+keycode  17 = parenright 8 8 asterisk onehalf
+keycode  18 = plus 9 9 parenleft dead_grave
+keycode  19 = bracketright 0 0 parenright
+
+clear Lock
+
+! keycode 108 = NoSymbol NoSymbol 
+keycode 108 = Mode_switch
+keycode 107 = Mode_switch
+
+! keycode 9 = NoSymbol NoSymbol
+keycode 66 = Escape NoSymbol Escape
+
+keycode 44 = h H Left NoSymbol NoSymbol NoSymbol
+keycode 54 = j J Down NoSymbol NoSymbol NoSymbol
+keycode 55 = k K Up NoSymbol NoSymbol NoSymbol
+keycode 33 = l L Right NoSymbol lstroke Lstroke
