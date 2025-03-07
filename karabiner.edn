@@ -1,6 +1,6 @@
 {
   :profiles {:Default {:default true :alone 80 :held 50 :delay 0 :sim 1000}}
-  :input-sources {:ru {:language "ru"}}
+  :input-sources {:ru {:input_source_id "org.unknown.keylayout.RussionPhoneticProDvorak"}}
   :devices {:vortex [{:vendor_id 1241 :product_id 402}]}
   :froms {
     :ya {:sim [:t :a] :simo {:dorder :strict} :modi {:optional :any}}
@@ -10,10 +10,10 @@
     :sh {:sim [:semicolon :j] :simo {:dorder :strict} :modi {:optional :any}}
   }
   :templates {
-    :yabai "/usr/local/bin/yabai -m %s"
+    :yabai "/opt/homebrew/bin/yabai -m %s"
     :open-app "open -a '%s'"
-    :focus-to-right-window "/usr/local/bin/yabai -m window --focus $(/usr/local/bin/yabai -m query --windows | /usr/local/bin/jq '[.[] | {id, focused, x: .frame.x, y: .frame.y}] | sort_by(-.focused, .x) | .[0].x as $fx | .[0].y as $fy | map(select(.x > $fx and .y == $fy)) | .[0].id')"
-    :focus-to-left-window "/usr/local/bin/yabai -m window --focus $(/usr/local/bin/yabai -m query --windows | /usr/local/bin/jq '[.[] | {id, focused, x: .frame.x, y: .frame.y}] | sort_by(-.focused, -.x) | .[0].x as $fx | .[0].y as $fy | map(select(.x < $fx and .y == $fy)) | .[0].id')"
+    :focus-to-right-window "/opt/homebrew/bin/yabai -m window --focus $(/usr/local/bin/yabai -m query --windows | /usr/local/bin/jq '[.[] | {id, focused, x: .frame.x, y: .frame.y}] | sort_by(-.focused, .x) | .[0].x as $fx | .[0].y as $fy | map(select(.x > $fx and .y == $fy)) | .[0].id')"
+    :focus-to-left-window "/opt/homebrew/bin/yabai -m window --focus $(/usr/local/bin/yabai -m query --windows | /usr/local/bin/jq '[.[] | {id, focused, x: .frame.x, y: .frame.y}] | sort_by(-.focused, -.x) | .[0].x as $fx | .[0].y as $fy | map(select(.x < $fx and .y == $fy)) | .[0].id')"
   }
   :simlayers {
     :o-mode {:key :s}
@@ -26,10 +26,12 @@
       :rules [
         :w-mode
         ;; hmm, todo
-        [:q [:yabai "window --grid 1:12:0:0:1:1"]]
-        [:w [:yabai "window --grid 1:12:0:0:4:1"]]
-        [:e [:yabai "window --grid 1:12:4:0:4:1"]]
-        [:r [:yabai "window --grid 1:12:8:0:4:1"]]
+        [:q [:yabai "window --grid 1:12:0:0:12:0"]]
+        [:w [:yabai "window --grid 1:12:0:0:6:0"]]
+        [:e [:yabai "window --grid 1:12:1:0:10:0"]]
+        [:r [:yabai "window --grid 1:12:6:0:6:0"]]
+        [:s [:yabai "window --grid 1:12:0:0:3:0"]]
+        [:f [:yabai "window --grid 1:12:9:0:3:0"]]
       ]
     }
     {
@@ -83,4 +85,3 @@
     }
   ]
 }
-    
